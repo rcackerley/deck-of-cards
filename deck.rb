@@ -25,7 +25,14 @@ class Deck
   end
 
   def cheat
-    # see the next card, but don't discard it
+    @top_card = @cards[0]
+  end
+
+  def next_is_face_card?
+    if @top_card.nil?
+      raise 'It is against the rules to look at the card before drawing!'
+    end
+    @top_card.face_card?
   end
 
   private 
