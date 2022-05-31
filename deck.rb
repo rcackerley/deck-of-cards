@@ -15,7 +15,8 @@ class Deck
   end
 
   def shuffle
-    # return all cards to the deck, and randomize the order
+    @cards = (@cards + @discarded).shuffle
+    @discarded = []
   end
 
   def cheat
