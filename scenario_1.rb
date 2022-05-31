@@ -14,6 +14,6 @@ Begin!
 
 EOF
 
-# here's some code to help you get started
 deck = Deck.new
 deck.shuffle
+deck.draw(5)
