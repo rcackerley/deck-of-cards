@@ -10,8 +10,13 @@ class Deck
                   .flatten
   end
 
-  def draw
-    # get the next card and remove it from the deck
+  def draw(number = 1)
+    number.times do
+      current_card = @cards.shift
+      return report_empty_deck if current_card.nil?
+      report_drawn(current_card)
+      discard(current_card)  
+    end
   end
 
   def shuffle
@@ -30,5 +35,17 @@ class Deck
 
   def cards_for(suit)
     RANKS.map{ |rank| Card.new(rank, suit)}
+  end
+
+  def discard(card)
+    @discarded.unshift(card)
+  end
+
+  def report_empty_deck
+    puts 'Empty Deck'
+  end
+
+  def report_drawn(card)
+    puts "You drew a #{card.description}."
   end
 end
