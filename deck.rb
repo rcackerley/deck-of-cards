@@ -35,6 +35,10 @@ class Deck
     @top_card.face_card?
   end
 
+  def stack_by(rank)
+    @cards = @cards.sort_by { |card| card.rank == rank ? 0 : 1 }
+  end
+
   private 
 
   SUITS = ['Clubs', 'Diamonds', 'Hearts', 'Spades'].freeze

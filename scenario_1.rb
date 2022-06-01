@@ -17,3 +17,7 @@ EOF
 deck = Deck.new
 deck.shuffle
 deck.draw(5)
+
+# bonus scenario
+deck.stack_by('K')
+deck.draw(4)
